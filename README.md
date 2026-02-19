@@ -1,51 +1,73 @@
-# Pyro Commerce Frontend
+# React + TypeScript + Vite
 
-Pyro Commerce Frontend is a production-ready E-commerce web application built using modern frontend technologies. This project is designed as a real-world, scalable crackers selling platform with clean architecture, performance optimization, and enterprise-level best practices.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## 🚀 Tech Stack
+Currently, two official plugins are available:
 
-- React (Latest)
-- Vite (Fast build tool)
-- Tailwind CSS (Utility-first styling)
-- React Router (Routing)
-- Redux Toolkit / Zustand (State Management)
-- Axios (API integration)
-- React Hook Form + Zod/Yup (Form validation)
-- JWT Authentication Handling
-- Stripe Integration (Payment UI setup)
-- Framer Motion (Animations)
-- Lazy Loading & Code Splitting
-- Environment-based configuration
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## 🎯 Project Goals
+## React Compiler
 
-- Production-ready architecture
-- Clean and reusable component structure
-- SEO optimization
-- Performance optimization
-- Mobile-first responsive design
-- Secure frontend practices
-- Scalable folder structure
-- Portfolio-grade implementation
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## 📦 Features
+## Expanding the ESLint configuration
 
-- Product listing & filtering
-- Category-based navigation
-- Product details page
-- Cart management
-- Wishlist functionality
-- Authentication (Login / Register)
-- Checkout flow
-- Payment integration (Stripe UI)
-- Order confirmation
-- Protected routes
-- Dynamic API integration
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## 🧠 Learning Objective
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-This project is built as an end-to-end industry-level frontend application to simulate real client delivery standards.
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
----
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-⚡ This repository represents frontend architecture standards used in modern E-commerce applications.
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
