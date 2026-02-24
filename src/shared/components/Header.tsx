@@ -1,3 +1,4 @@
+import AnnouncementBar from "@/features/home/components/AnnouncementBar";
 import { useState } from "react";
 import { BiMenu } from "react-icons/bi";
 import { BsLightningFill, BsCart4, BsSearch } from "react-icons/bs";
@@ -7,7 +8,7 @@ function Header() {
   const [cartCount] = useState(8);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#f1f5eb] px-4 pt-6 pb-8 md:pt-3 md:pb-3">
+    <header className="sticky top-0 z-50 bg-[#f1f5eb] px-4 pt-6 pb-3 md:pt-3 md:pb-3">
       {/* HEADER CARD */}
       <div className="relative max-w-400 mx-auto bg-[#0f4c45] rounded-xl shadow-lg px-4 md:px-6 py-2 md:py-6">
         {/* ================= MOBILE LAYOUT ================= */}
@@ -18,7 +19,7 @@ function Header() {
           </button>
 
           {/* Cart */}
-          <button className="relative w-10 h-10 rounded-full bg-white text-[#0f4c45] flex items-center justify-center shadow-sm">
+          <button className="relative w-9 h-9 rounded-full bg-white text-[#0f4c45] flex items-center justify-center shadow-sm">
             <BsCart4 className="text-md" />
             {cartCount > 0 && (
               <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[11px] font-bold rounded-full flex items-center justify-center shadow-[0_0_0_3px_#0f4c45]">
@@ -91,6 +92,14 @@ function Header() {
           </div>
         </div>
       </div>
+
+      <AnnouncementBar
+        messages={[
+          "Celebrate Diwali with Up to 80% Off",
+          "Free Delivery on Orders Above ₹2500",
+          "Minimum Order Value ₹2500",
+        ]}
+      />
     </header>
   );
 }

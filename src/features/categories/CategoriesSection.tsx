@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 
 function CategoriesSection() {
   return (
-    <section className="max-w-[1600px] mx-auto px-4 mt-4">
+    <section className="max-w-[1600px] mx-auto px-4 mt-1">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         {categories.map((category) => (
           <CategoryCard key={category.id} category={category} />

@@ -40,13 +40,22 @@ function ProductSection({ title, products }: Props) {
       <Swiper
         modules={[Autoplay]}
         spaceBetween={16}
-        loop
+        loop={true}
         speed={800}
-        grabCursor
+        grabCursor={true}
         autoplay={{
           delay: 2000,
           disableOnInteraction: false,
-          pauseOnMouseEnter: true, // 🔥 this is enough
+          pauseOnMouseEnter: true,
+        }}
+        onSwiper={(swiper) => {
+          // Extra safety for hover pause reliability
+          swiper.el.addEventListener("mouseenter", () => {
+            swiper.autoplay.stop();
+          });
+          swiper.el.addEventListener("mouseleave", () => {
+            swiper.autoplay.start();
+          });
         }}
         breakpoints={{
           0: {

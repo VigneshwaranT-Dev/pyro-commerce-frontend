@@ -14,7 +14,7 @@ function BottomNav() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `relative flex items-center justify-center w-11 h-11 rounded-full transition-all ${
+              `relative flex items-center justify-center w-9 h-9 rounded-full transition-all ${
                 isActive
                   ? "bg-white text-[#0f4c45]"
                   : "text-white hover:bg-[#0c3e38]"
@@ -28,7 +28,7 @@ function BottomNav() {
           <NavLink
             to="/shop"
             className={({ isActive }) =>
-              `relative flex items-center justify-center w-11 h-11 rounded-full transition-all ${
+              `relative flex items-center justify-center w-9 h-9 rounded-full transition-all ${
                 isActive
                   ? "bg-white text-[#0f4c45]"
                   : "text-white hover:bg-[#0c3e38]"
@@ -40,16 +40,16 @@ function BottomNav() {
 
           {/* Cart */}
           <NavLink
-            to="/cart"
+            to="/"
             className={({ isActive }) =>
-              `relative flex items-center justify-center w-11 h-11 rounded-full transition-all ${
+              `relative flex items-center justify-center w-9 h-9 rounded-full transition-all ${
                 isActive
                   ? "bg-white text-[#0f4c45]"
                   : "text-white hover:bg-[#0c3e38]"
               }`
             }
           >
-            <BsCart4 size={20} />
+            <BsCart4 size={16} />
 
             <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[11px] font-bold rounded-full flex items-center justify-center shadow-[0_0_0_3px_#0f4c45]">
               8
@@ -60,7 +60,7 @@ function BottomNav() {
           <NavLink
             to="/account"
             className={({ isActive }) =>
-              `relative flex items-center justify-center w-11 h-11 rounded-full transition-all ${
+              `relative flex items-center justify-center w-9 h-9 rounded-full transition-all ${
                 isActive
                   ? "bg-white text-[#0f4c45]"
                   : "text-white hover:bg-[#0c3e38]"
